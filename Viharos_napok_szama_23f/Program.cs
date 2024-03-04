@@ -75,6 +75,77 @@ namespace Viharos_napok_szama_23f
 			// default: "[ 0 10 0 0 0 ]";
 		}
 
+		static bool Van_e_kisse_szeles_nap_bután(int[] t) // Eldöntés programozási tétel
+		{
+			for (int i = 0; i < t.Length; i++)
+			{
+				if (100<t[i])
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+		static bool Van_e_kisse_szeles_nap_okosan(int[] t) // Az igazi eldöntés programozási tétel
+		{
+			int i = 0;
+			while (i < t.Length && !(100 < t[i]))
+			{
+				i++;
+			}
+			return i < t.Length;
+		}
+
+		/// <summary>
+		/// Ha van kissé szeles nap, akkor annak az indexét adja vissza, 
+		/// Egyébként pedig a lista/tömb méretét.
+		/// </summary>
+		/// <param name="t"></param>
+		/// <returns>keresett elem indexe, vagy a tömb mérete ha nincs</returns>
+		static int Kissé_szeles_nap_helye_okosan(int[] t) 
+		{
+			int i = 0;
+			while (i < t.Length && !(100 < t[i]))
+			{
+				i++;
+			}
+			return i;
+		}
+
+
+		/// <summary>
+		/// Ha van kissé szeles nap, akkor annak az indexét adja vissza, 
+		/// Egyébként pedig a -1-et.
+		/// </summary>
+		/// <param name="t"></param>
+		/// <returns>keresett elem indexe, vagy -1 ha nincs</returns>
+		static int Kissé_szeles_nap_keresése_okosan(int[] t)
+		{
+			int i = 0;
+			while (i < t.Length && !(100 < t[i]))
+			{
+				i++;
+			}
+			return i < t.Length ? i : -1;
+		}
+
+		/// <summary>
+		/// Ha meg van ígérve, hogy biztosan van ilyen elem, 
+		/// akkor annak az indexét adja vissza, 
+		/// </summary>
+		/// <param name="t"></param>
+		/// <returns>keresett elem indexe</returns>
+		static int Kissé_szeles_nap_keresése_okosan_ha_megigertek_hogy_van(int[] t)
+		{
+			int i = 0;
+			while (!(100 < t[i])) // nem kell óvatoskodni!
+			{
+				i++;
+			}
+			return i;
+		}
+
 		static void Main(string[] args)
 		{
 			int[] t = Beolvasas();
