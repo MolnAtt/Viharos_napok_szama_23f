@@ -39,6 +39,25 @@ namespace Viharos_napok_szama_23f
 			return result;
 		}
 
+		// Új feladat: Mekkora volt az átlagsebesség?
+		// Új részfeladat: Mekkora a tömb tagjainak az összege?
+
+		static int Osszeg(int[] t)
+		{
+			int result = 0;
+			for (int i = 0; i < t.Length; i++)
+			{
+				result += t[i];
+			}
+			return result;
+		}
+
+		static double Atlag(int[] t)
+		{
+			double result = (double)Osszeg(t) / t.Length;
+			return result;
+		}
+
 		static string Stringbe<T>(T[] t, string separator = " ", string start = "[ ", string end = " ]")
 		{
 			if (t.Length == 0)
@@ -60,10 +79,134 @@ namespace Viharos_napok_szama_23f
 		{
 			int[] t = Beolvasas();
 
-            // Console.WriteLine(Stringbe(t));
+			// Console.WriteLine(Stringbe(t));
 
-            int eredmeny = Feldolgozas(t);
-            Console.WriteLine(eredmeny);
+			// int eredmeny = Feldolgozas(t);
+			double eredmeny = Atlag(t);
+			Console.WriteLine(eredmeny);
         }
 	}
 }
+
+/*
+
+10 3
+0
+5
+0
+5
+0
+5
+111
+111
+111
+111 
+ 
+
+*/
+
+/*
+
+100 3
+77
+94
+169
+106
+39
+131
+157
+32
+151
+24
+152
+179
+20
+158
+93
+30
+21
+171
+66
+77
+9
+126
+143
+85
+55
+182
+149
+171
+15
+1
+88
+7
+80
+185
+136
+186
+3
+83
+93
+62
+143
+2
+193
+102
+111
+74
+58
+94
+33
+113
+127
+108
+105
+59
+75
+134
+125
+21
+192
+126
+122
+137
+15
+20
+55
+172
+77
+90
+48
+29
+95
+22
+102
+192
+137
+131
+21
+89
+67
+25
+182
+180
+86
+78
+30
+116
+78
+149
+151
+83
+72
+6
+181
+122
+69
+54
+164
+145
+167
+121
+
+*/
